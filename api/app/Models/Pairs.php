@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Pairs extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'from',
+        'to',
+        'rate',
+        'count',
+    ];
 }
