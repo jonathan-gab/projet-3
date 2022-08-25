@@ -22,6 +22,11 @@ const router = createRouter({
       name: "login",
       component: LoginView,
     },
+    // {
+    //   path: "/addPairs",
+    //   name: "addPairs",
+    //   component: AddPairsView,
+    // },
   ],
 });
 

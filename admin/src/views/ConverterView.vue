@@ -1,6 +1,5 @@
 <script>
 import ConverterForm from '../components/converter/ConverterForm.vue';
-import ConverterFormVue from '../components/converter/ConverterForm.vue';
 
 export default {
   components: { ConverterForm },

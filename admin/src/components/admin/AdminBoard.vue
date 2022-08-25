@@ -73,12 +73,17 @@ export default {
 
     th{
         text-align: center;
+        color: white;
     }
     
     td{
         text-align: center;
+        color: white;
     }
 
+    hr{
+        background-color:white;
+    }
   
 
 </style>
