@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Pairs;
+use App\Models\Currency;
 use Illuminate\Http\Request;
 
-class PairsController extends Controller
+class CurrencyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class PairsController extends Controller
      */
     public function index()
     {
-        $pairs = Pairs::with('getCurrencyFrom', 'getCurrencyTo')->get();
-        if(!$pairs) return response()->json(['error' => 'Aucune paire disponible'], 404);
-        return response()->json($pairs, 200);
+        $currencies = Currency::all();
+        // On retourne les informations des devises en JSON
+        return response()->json($currencies);
     }
 
     /**
@@ -34,10 +34,10 @@ class PairsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Pairs  $pairs
+     * @param  \App\Models\Currency  $currency
      * @return \Illuminate\Http\Response
      */
-    public function show(Pairs $pairs)
+    public function show(Currency $currency)
     {
         //
     }
@@ -46,10 +46,10 @@ class PairsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Pairs  $pairs
+     * @param  \App\Models\Currency  $currency
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pairs $pairs)
+    public function update(Request $request, Currency $currency)
     {
         //
     }
@@ -57,10 +57,10 @@ class PairsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Pairs  $pairs
+     * @param  \App\Models\Currency  $currency
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pairs $pairs)
+    public function destroy(Currency $currency)
     {
         //
     }

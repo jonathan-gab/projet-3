@@ -20,7 +20,7 @@ class Currency extends Model
 
     public  function pairs()
     {
-        return $this->belongsToMany(Pairs::class);
+        return $this->hasMany(Pairs::class);
     }
 
     public static function getByCode($code)
