@@ -12,8 +12,6 @@ export default {
 <template>
 <div>
 
-     <AddPairs/>
-
     <AdminBoard/>
 
 </div>
