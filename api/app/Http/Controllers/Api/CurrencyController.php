@@ -30,7 +30,7 @@ class CurrencyController extends Controller
     public function store(Request $request)
     {
         $validate = Validator::make($request->all(), [
-            'name' => 'required|string|min:3|max:3',
+            'code' => 'required|string|min:3|max:3',
         ]);
         if($validate->fails()){
             return response()->json(['message' => 'Failed currency validation', 'errors' => $validate->errors()], 422);
