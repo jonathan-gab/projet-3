@@ -11,7 +11,7 @@ class Pairs extends Model
 
     protected $fillable = [
         'rate',
-        'curry_from_id',
+        'currency_from_id',
         'currency_to_id',
         
     ];
