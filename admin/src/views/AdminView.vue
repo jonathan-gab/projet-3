@@ -1,11 +1,13 @@
 <script>
 import AdminBoard from '../components/admin/AdminBoard.vue';
 import axios from 'axios';
+import NewCurrency from '../components/admin/NewCurrency.vue';
 export default {
-    components: { AdminBoard },
+    components: { AdminBoard, NewCurrency },
     data() {
         return {
             pairs: [],
+            currencies: [],
         }
     },
     mounted() {
@@ -24,6 +26,7 @@ export default {
 <template>
 <div>
 
+    <NewCurrency/>
     <AdminBoard :pairs="this.pairs"/>
 
 </div>

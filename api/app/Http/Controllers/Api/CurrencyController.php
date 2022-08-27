@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Currency;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CurrencyController extends Controller
 {
@@ -16,8 +17,8 @@ class CurrencyController extends Controller
     public function index()
     {
         $currencies = Currency::all();
-        // On retourne les informations des devises en JSON
-        return response()->json($currencies);
+        if(!$currencies) return response()->json(['error' => 'There are no currency'], 404);
+        return response()->json($currencies, 200);
     }
 
     /**
@@ -28,7 +29,15 @@ class CurrencyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validate = Validator::make($request->all(), [
+            'name' => 'required|string|min:3|max:3',
+        ]);
+        if($validate->fails()){
+            return response()->json(['message' => 'Failed currency validation', 'errors' => $validate->errors()], 422);
+        }
+
+        $currency = Currency::create($request->all());
+        return response()->json($currency,200);
     }
 
     /**
