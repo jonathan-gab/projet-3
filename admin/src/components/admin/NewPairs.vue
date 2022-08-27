@@ -49,7 +49,6 @@ export default {
     methods: {
 
         async newPairs(event) {
-           
             this.v$.$validate();
             if (this.v$.$error==true) {
                 event.preventDefault();
@@ -60,8 +59,8 @@ export default {
                     currency_to_id: this.idToCurrency,
                     rate: this.rateCurrency
                 })
-                .then(response => console.log(response))
-                .catch(err => console.log(error)); 
+                .then(response => window.location.reload())
+                .catch(err => console.log(err)); 
             }
             
             
@@ -108,7 +107,7 @@ export default {
                 </div>
             </div>
             <div class="col-lg-3 m-auto">
-                <button type="submit" class="btn btn-primary" @click="newPairs">Ajouter</button>
+                <button type="submit" class="btn btn-primary" @click.prevent="newPairs">Ajouter</button>
             </div>
 
         </div>
