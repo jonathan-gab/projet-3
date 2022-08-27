@@ -60,8 +60,11 @@ class PairsController extends Controller
      * @param  \App\Models\Pairs  $pairs
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pairs $pairs)
+    public function destroy($id)
     {
-        //
+        $pairs = Pairs::find($id);
+        $pairs->delete();
+
+        return response()->json(['message'=>'supp reussi']);
     }
 }

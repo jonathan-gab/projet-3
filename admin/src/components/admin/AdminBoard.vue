@@ -7,8 +7,21 @@ props: {
             default: () => []
         }
     },
+
+    methods: {
+        async pairsDelete(id) {
+            await axios.delete(`http://127.0.0.1:8000/api/pairs/${id}`)
+                .then((response) => {
+                    window.location.reload();
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        },
+    }
 }
 </script>
+
 
 
 <template>
@@ -31,7 +44,7 @@ props: {
         <td>
           <button  type="button" class="btn btn-primary">Modifier</button>
 
-          <button type="button"  class="btn btn-danger">Supprimer</button>
+          <button type="button" @click="pairsDelete(pair.id)"  class="btn btn-danger">Supprimer</button>
         </td>
       </tr>
       
