@@ -1,9 +1,21 @@
 <script>
 import AdminBoard from '../components/admin/AdminBoard.vue';
-import AddPairs from '../components/admin/AddPairs.vue';
-
+import axios from 'axios';
 export default {
-    components: { AdminBoard, AddPairs }
+    components: { AdminBoard },
+    data() {
+        return {
+            pairs: [],
+        }
+    },
+    mounted() {
+    axios.get('http://127.0.0.1:8000/api/pairs')
+      .then((response) => {
+        
+        this.pairs = response.data;
+      })
+      .catch(err => console.log(err))
+    }
 }
 
 </script>
@@ -12,7 +24,7 @@ export default {
 <template>
 <div>
 
-    <AdminBoard/>
+    <AdminBoard :pairs="this.pairs"/>
 
 </div>
    
