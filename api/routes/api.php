@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\ConversionController;
 use App\Http\Controllers\Api\CurrencyController;
 use App\Http\Controllers\Api\PairsController;
 use Illuminate\Http\Request;
@@ -20,6 +21,8 @@ Route::get('/ping', function () {
 });
 Route::resource('currencies', CurrencyController::class);
 Route::resource('pairs', PairsController::class);
+Route::get('convert', [ConversionController::class, 'converter']);
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
