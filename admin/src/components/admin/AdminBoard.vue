@@ -46,7 +46,7 @@ export default {
             <tr>
                 <th scope="col">Paires</th>
                 <th scope="col">Taux</th>
-                <th scope="col">Nb</th>
+                <th scope="col">Compteur</th>
                 <th scope="col"></th>
             </tr>
         </thead>
@@ -58,7 +58,7 @@ export default {
 
                 <td>0</td>
                 <td>
-                    <button type="button" @click="showModal(); getPairsToEdit(pair)" class="btn btn-primary">Modifier</button>
+                    <button type="button" @click="showModal(); getPairsToEdit(pair)" class="btn btn-primary mx-2 ">Modifier</button>
 
                     <button type="button" @click="pairsDelete(pair.id)" class="btn btn-danger">Supprimer</button>
                 </td>
@@ -76,4 +76,11 @@ export default {
 
 
 <style>
+td{
+    color: white;
+}
+tr{
+    color: white;
+}
+    
 </style>

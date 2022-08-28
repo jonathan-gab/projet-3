@@ -52,14 +52,14 @@ export default {
     }
 
     .btnConverter{
-        opacity: 70%;
+        
         background: rgb(2, 116, 215); 
         color: white;
    
     }
 
     .btnConverter:hover{
-        opacity: 80%;
+        
         background: none;
         color : black;
     }

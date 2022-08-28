@@ -40,15 +40,22 @@ export default {
         <div class="modale ">
             <div @click="showModal" class="btn-modale btn btn-danger">X</div>
             <form>
-                <div class="row col-lg-12">
-                    <h1>Modifiez le taux de change de la paire</h1>
-                    <div class="mb-3 col-lg-3">
-                        <label for="rate">Taux de change</label>
-                        <input type="text" class="form-control" placeholder="0" v-model="editPairs.rate">
+                <div class=" row col-lg-12">
+                    <h1 class=" pb-2 font-monospace">Modifiez le taux de change de la paire</h1>
+                    <div class=" col-lg-12">
+                        <div class=" col-lg-12 m-auto">
+                            <div class=" m-auto mb-3 col-lg-3">
+                                <label for=" rate"> <h4 class="font-monospace">Taux de change</h4></label>
+                                <hr>
+                                <input type="text" class="form-control" placeholder="0" v-model="editPairs.rate">
+                            </div>
+                        </div>
+                    
+                        <div class=" col-lg-3 m-auto">
+                            <button type="submit" class=" btn btn-primary" @click.prevent="editPairsRate(editPairs.id)">Modifier</button>
+                        </div>
                     </div>
-                    <div class="col-lg-3 m-auto">
-                        <button type="submit" class="btn btn-primary" @click.prevent="editPairsRate(editPairs.id)">Modifier</button>
-                    </div>
+                    
 
                 </div>
 

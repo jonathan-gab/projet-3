@@ -77,8 +77,8 @@ export default {
 <template>
     <form class="mb-2 m-auto">
         <div class="  row col-lg-12">
-            <div class="mb-3 col-lg-3">
-                <label for="currencyEntry">Devise d'entrée</label>
+            <div class=" col-lg-3">
+                <label class=" text-white" for="currencyEntry">Devise d'entrée</label>
                 <select class="form-select" v-model="idFromCurrency">
                     <option v-for="currency in currencies" :key="currency.id" :value="currency.id">
                         {{ currency.code }}
@@ -88,8 +88,8 @@ export default {
                     {{ v$.idFromCurrency.$errors[0].$message }}
                 </div>
             </div>
-            <div class="mb-3 col-lg-3">
-                <label for="currencyExit">Devise de sortie</label>
+            <div class=" col-lg-3">
+                <label class="text-white" for="currencyExit">Devise de sortie</label>
                 <select class="form-select" v-model="idToCurrency">
                     <option v-for="currency in currencies" :key="currency.id" :value="currency.id">
                         {{ currency.code }}
@@ -99,15 +99,15 @@ export default {
                     {{ v$.idToCurrency.$errors[0].$message }}
                 </div>
           </div>
-            <div class="mb-3 col-lg-3">
-                <label for="rate">Taux de change</label>
+            <div class=" col-lg-3">
+                <label class="text-white" for="rate">Taux de change</label>
                 <input type="text" class="form-control" placeholder="ex : 0.2" v-model="rateCurrency">
                 <div class="error" v-if="v$.rateCurrency.$error">
                     {{ v$.rateCurrency.$errors[0].$message }}
                 </div>
             </div>
-            <div class="col-lg-3 m-auto">
-                <button type="submit" class="btn btn-primary" @click.prevent="newPairs">Ajouter</button>
+            <div class=" col-lg-3 pt-4 mb-4 m-auto">
+                <button type="submit" class=" btn btn-primary" @click.prevent="newPairs">Ajouter</button>
             </div>
 
         </div>

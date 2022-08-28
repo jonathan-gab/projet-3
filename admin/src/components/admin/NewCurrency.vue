@@ -56,17 +56,17 @@ export default {
 
 <template>
     <form class="mb-2 m-auto">
-        <div class="row col-lg-12">
+        <div class=" row col-lg-12">
             
-            <div class="mb-3 col-lg-6">
-                <label for="rate">Ajouter une nouvelle devise</label>
-                <input type="text" class="form-control" placeholder="ex : EUR" v-model="newCurrency">
+            <div class=" mb-4 col-lg-8">
+                <label class="text-white" for="rate">Ajouter une nouvelle devise</label>
+                <input type="text" class=" form-control" placeholder="ex : EUR" v-model="newCurrency">
                 <div class="error" v-if="v$.newCurrency.$error">
                     {{ v$.newCurrency.$errors[0].$message }}
                 </div>
             </div>
-            <div class="col-lg-6 m-auto">
-                <button type="submit" class="btn btn-primary" @click.prevent="addNewCurrency">Ajouter</button>
+            <div class=" col-lg-4 m-auto ">
+                <button type="submit" class="col-8 btn btn-primary" @click.prevent="addNewCurrency">Ajouter</button>
             </div>
 
         </div>
