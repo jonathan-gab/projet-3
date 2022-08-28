@@ -38,11 +38,11 @@ class ConversionController extends Controller
 
         //Récupération de la paire en fonction des devises données
         $pairs = Pairs::getPairByCurrencies($fromCurrency, $toCurrency);
-        //Vérification de si la paire existe, dans le cas contraire, un message d'erreur apparaît.
+        //Vérification de l'existence de la paire, dans le cas contraire, un message d'erreur apparaît.
         if ($pairs == null) return response()->json(['error' => 'Pairs not found'], 404);
         
         //Lorsque la paire existe 
-        //Vérifier s'il faut faire la conversion inverse
+        //Vérification de s'il est demandé de faire la conversion inverse
         if($reverse == true) {
             $result = $amount * 1/$pairs->rate;
             $data = [
