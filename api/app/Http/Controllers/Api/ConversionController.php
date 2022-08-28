@@ -18,31 +18,31 @@ class ConversionController extends Controller
             'amount' => 'required|min:0',
             'reverse'=>'required|boolean'
         ]);
-        // Si les paramètres ne conviennent un message d'erreur est renvoyé
+        // Lorsque les paramètres ne correspondent pas, un message d'erreur apparaît.
         if($validate->fails()){
             return response()->json(['message' => 'Validation failed', 'errors' => $validate->errors()], 422);
         }
         $from=$request->query('from');
         $to=$request->query('to');
 
-        //Récupérer les devises par leur nom
+        //Effectue une récupération des devises par leur nom.
         $fromCurrency = Currency::getByCode($from)->first();
         $toCurrency = Currency::getByCode($to)->first();
         $amount = $request->query('amount') ?? 1;
         $reverse=$request->query('reverse');
 
-        //Si les devises n'existent pas, renvoyer un message d'erreur 
+        //Lorsque les devises n'existent pas, un message d'erreur appraît.
         if (!$fromCurrency || !$toCurrency) return response()->json(['error' => 'from` or `to` parameters must be existing currency codes'], 404);
-        //Si les devises sont identiques, renvoyer un message d'erreur 
+        //Lorsque les devises sont identiques un message d'erreur apparaît. 
         if ($from == $to) return response()->json(['error' => '`from` and `to` cannot be the same'], 400);
 
-        //Récupérer la paire en fonction des devises données
+        //Récupération de la paire en fonction des devises données
         $pairs = Pairs::getPairByCurrencies($fromCurrency, $toCurrency);
-        //Vérifier si la paire existe, sinon un message d'erreur sera renvoyé
+        //Vérification de si la paire existe, dans le cas contraire, un message d'erreur apparaît.
         if ($pairs == null) return response()->json(['error' => 'Pairs not found'], 404);
         
-        //Si la paire existe 
-        //Vérifier s'il faut faire le reverse
+        //Lorsque la paire existe 
+        //Vérifier s'il faut faire la conversion inverse
         if($reverse == true) {
             $result = $amount * 1/$pairs->rate;
             $data = [
@@ -64,7 +64,7 @@ class ConversionController extends Controller
             ];
         }
 
-        //Renvoyer la donnée après la conversion 
+        //Renvoyer la donnée suite à la conversion 
         return response()->json(['message' => 'Convert completed', $data],200);
     }
     /**

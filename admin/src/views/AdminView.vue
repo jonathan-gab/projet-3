@@ -3,8 +3,9 @@ import AdminBoard from '../components/admin/AdminBoard.vue';
 import axios from 'axios';
 import NewCurrency from '../components/admin/NewCurrency.vue';
 import NewPairs from '../components/admin/NewPairs.vue';
+import AdminForm from '../components/admin/AdminForm.vue';
 export default {
-    components: { AdminBoard, NewCurrency, NewPairs },
+    components: { AdminBoard, NewCurrency, NewPairs, AdminForm },
     data() {
         return {
             pairs: [],
@@ -34,7 +35,7 @@ export default {
 
 <template>
 <div>
-
+    <!-- <AdminForm/> -->
     <NewCurrency/>
     <NewPairs :currencies="this.currencies"/>
     <AdminBoard :pairs="this.pairs"/>

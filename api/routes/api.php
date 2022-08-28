@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\ConversionController;
 use App\Http\Controllers\Api\CurrencyController;
 use App\Http\Controllers\Api\PairsController;
@@ -16,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::post('login', [AuthController::class, 'login']);
 Route::get('/ping', function () {
     return response('The service is functional', 200)->header('Content-Type', 'text/plain');
 });
